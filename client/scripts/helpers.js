@@ -30,16 +30,6 @@ function domManipulator(data, repo, index) {
     document.getElementById(element.id).innerText = element.data;
     document.getElementById(element.id).style.height = `${element.data/200}px`;
   });
-  updateRepos(elements, index);
-}
-
-//Updates each object in the repos array so that it reflects the data most recently fetched
-
-function updateRepos(data, i) {
-  const props = ['stars', 'forks', 'watchers'];
-  props.forEach((prop, index) => {
-    repos[i][prop] = data[index].data;
-  });
 }
 
 //Fetches the data repeatedly and applies the domManipulator to the newly fetched data
