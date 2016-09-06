@@ -36,9 +36,8 @@ function domManipulator(data, repo, index) {
 //Allows for data to be updated without a page refresh
 
 (function updateDom() {
-  setTimeout(updateDom, 5000);
-
   repos.forEach((account, i) => {
     gitFetch(account.user, account.repo, i, domManipulator);
   });
+  setTimeout(updateDom, 5000);
 })();
