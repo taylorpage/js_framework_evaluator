@@ -36,15 +36,9 @@ function domManipulator(data, repo, index) {
 //Allows for data to be updated without a page refresh
 
 (function updateDom() {
-  domManipulator({ stargazers_count: 48330, forks_count: 8300, watchers_count: 23560 }, 'react', 0);
-  domManipulator({ stargazers_count: 51330, forks_count: 25300, watchers_count: 35690 }, 'angular.js', 1);
-  domManipulator({ stargazers_count: 16330, forks_count: 3300, watchers_count: 12280 }, 'ember.js', 2);
-  domManipulator({ stargazers_count: 26330, forks_count: 2800, watchers_count: 32340 }, 'vue', 3);
+  setTimeout(updateDom, 5000);
 
-  // setTimeout(updateDom, 10000);
-
-  // repos.forEach((account, i) => {
-  //   gitFetch(account.user, account.repo, i, domManipulator);
-  // });
-
+  repos.forEach((account, i) => {
+    gitFetch(account.user, account.repo, i, domManipulator);
+  });
 })();
