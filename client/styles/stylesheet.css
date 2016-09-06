@@ -16,23 +16,19 @@ body {
   text-align: center;
 }
 
-.stars {
-  background: url(star.png), rgb(200,50,50);
-  background-repeat: no-repeat;
+.disp {
   margin: 0px 30%;
   padding: 10px;
+}
+
+.stars {
+  background: url(star.png), rgb(200,50,50);
 }
 
 .forks {
   background: url(fork.png), rgb(100,200,100);
-  background-repeat: no-repeat;
-  margin: 0px 30%;
-  padding: 10px;
 }
 
 .watchers {
   background: url(watch.png), rgb(100,100,200);
-  background-repeat: no-repeat;
-  margin: 0px 30%;
-  padding: 10px;
 }
