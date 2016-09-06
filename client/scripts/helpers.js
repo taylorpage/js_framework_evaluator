@@ -30,31 +30,14 @@ function domManipulator(data, repo, index) {
     document.getElementById(element.id).innerText = element.data;
     document.getElementById(element.id).style.height = `${element.data/200}px`;
   });
-  updateRepos(elements, index);
-}
-
-//Updates each object in the repos array so that it reflects the data most recently fetched
-
-function updateRepos(data, i) {
-  const props = ['stars', 'forks', 'watchers'];
-  props.forEach((prop, index) => {
-    repos[i][prop] = data[index].data;
-  });
 }
 
 //Fetches the data repeatedly and applies the domManipulator to the newly fetched data
 //Allows for data to be updated without a page refresh
 
 (function updateDom() {
-  domManipulator({ stargazers_count: 48330, forks_count: 8300, watchers_count: 23560 }, 'react', 0);
-  domManipulator({ stargazers_count: 51330, forks_count: 25300, watchers_count: 35690 }, 'angular.js', 1);
-  domManipulator({ stargazers_count: 16330, forks_count: 3300, watchers_count: 12280 }, 'ember.js', 2);
-  domManipulator({ stargazers_count: 26330, forks_count: 2800, watchers_count: 32340 }, 'vue', 3);
-
-  // setTimeout(updateDom, 10000);
-
-  // repos.forEach((account, i) => {
-  //   gitFetch(account.user, account.repo, i, domManipulator);
-  // });
-
+  repos.forEach((account, i) => {
+    gitFetch(account.user, account.repo, i, domManipulator);
+  });
+  setTimeout(updateDom, 5000);
 })();
